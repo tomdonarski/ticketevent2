@@ -14,7 +14,8 @@ module Api
       end
 
       def find_ticket
-        Ticket.find(params[:ticket_id])
+        byebug
+        Ticket.find(params[:_jsonapi][:data][:attributes][:ticket_id])
       end
     end
   end

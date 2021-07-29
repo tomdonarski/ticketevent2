@@ -3,13 +3,13 @@ event2 = Event.create!(name: 'LOTR music - Live!', date: DateTime.new(2021,8,1,2
 event3 = Event.create!(name: 'Tokio Olympics', date: DateTime.new(2021,8,2,19,00,00))
 
 100.times do
-  event1.tickets.create!()
+  event1.tickets.create!(price: rand(20..100))
 end
 
 50.times do
-  event2.tickets.create!()
+  event2.tickets.create!(price: rand(20..100))
 end
 
 200.times do
-  event3.tickets.create!()
+  event3.tickets.create!(price: rand(20..100))
 end

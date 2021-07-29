@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_29_080731) do
+ActiveRecord::Schema.define(version: 2021_07_29_082233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 2021_07_29_080731) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "purchases", force: :cascade do |t|
+    t.bigint "ticket_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ticket_id"], name: "index_purchases_on_ticket_id", unique: true
+  end
+
   create_table "tickets", force: :cascade do |t|
     t.bigint "event_id", null: false
     t.boolean "sold", default: false, null: false
@@ -31,5 +38,6 @@ ActiveRecord::Schema.define(version: 2021_07_29_080731) do
     t.index ["event_id"], name: "index_tickets_on_event_id"
   end
 
+  add_foreign_key "purchases", "tickets"
   add_foreign_key "tickets", "events"
 end

@@ -47,6 +47,42 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "create_purchase",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"data\": {\n    \"type\": \"purchase\",\n    \"attributes\": {\n        \"ticket_id\": 1\n    }\n  }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/purchases",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"purchases"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
